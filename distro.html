@@ -23,13 +23,13 @@ window.onload = function()
         autostart: true,
     }
 	if (hda) {
-		params["hda"] = { url: "distros/"+hda }
+		params["hda"] = { url: hda }
 	}
 	if (fda) {
-		params["fda"] = { url: "distros/"+fda }
+		params["fda"] = { url: fda }
 	}
 	if (cd) {
-		params["cdrom"] = { url: "distros/"+cd }
+		params["cdrom"] = { url: cd }
 	}
     var emulator = new V86(params);
 	var screen = document.getElementById("scr");

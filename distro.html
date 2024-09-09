@@ -14,12 +14,12 @@ window.onload = function()
 	var fda = args.fda
 	var cd = args.cd
 	var params = {
-        wasm_path: "v86/build/v86.wasm",
+        wasm_path: "build/v86.wasm",
         memory_size: 200 * 1024 * 1024,
         vga_memory_size: 16 * 1024 * 1024,
         screen_container: document.getElementById("screen_container"),
-        bios: { url: "v86/bios/seabios.bin" },
-        vga_bios: { url: "v86/bios/vgabios.bin" },
+        bios: { url: "bios/seabios.bin" },
+        vga_bios: { url: "bios/vgabios.bin" },
         autostart: true,
     }
 	if (hda) {

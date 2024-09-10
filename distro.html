@@ -35,7 +35,7 @@ window.onload = function()
 	var screen = document.getElementById("scr");
 	screen.addEventListener("click", async function(){
 		// lock mouse cursor, and fullscreen if available
-		screen.requestPointerLock()
+		screen.requestPointerLock({unadjustedMovement: true}) // shut up mouse acceleration, you are breaking mouse cursor
 		//screen.requestFullscreen()
 	})
 };

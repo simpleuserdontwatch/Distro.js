@@ -1,0 +1,55 @@
+<!doctype html>
+<title>Linux</title>
+<script src="build/libv86.js"></script>
+<script>
+"use strict";
+window.onload = function()
+{
+	var params = {
+        wasm_path: "build/v86.wasm",
+        memory_size: 200 * 1024 * 1024,
+        vga_memory_size: 16 * 1024 * 1024,
+        screen_container: document.getElementById("screen_container"),
+        bios: { url: "bios/bochs-bios.bin" },
+        vga_bios: { url: "bios/bochs-vgabios.bin" },
+        autostart: true,
+        cdrom: { url: "distros/dsl-4.4.10.iso" }
+    }
+    var emulator = new V86(params);
+	var screen = document.getElementById("scr");
+	screen.addEventListener("click", async function(){
+		// lock mouse cursor, and fullscreen if available
+		screen.requestPointerLock({unadjustedMovement: true}) // shut up mouse acceleration, you are breaking mouse cursor
+		//screen.requestFullscreen()
+	})
+};
+</script>
+<body oncontextmenu="return false;">
+	<div id="screen_container" width="100%" height="100%">
+	    <div style="white-space: pre; font: 16px monospace; height: 16px; line-height: 16px"></div>
+	    <canvas style="display: none; width: 100%; height: 100%; margin: 0;" oncontextmenu="return false;" width="100%" height="100%" id="scr"></canvas>
+	</div>
+	<style>
+	#screen_container {
+	    width: 100%;
+	    height: 100vh;
+	    margin: 0;
+	    padding: 0;
+	}
+	body {
+	    background-color: black !important;
+	}
+	#screen_container canvas {
+	    width: 100%;
+	    height: 100vh;
+	    margin: 0;
+	    padding: 0;
+	}
+	</style>
+</body>
+<style>
+* {
+margin: 0;
+padding: 0;
+}
+</style>
